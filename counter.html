@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>计数器</title>
+    <style>
+    #counter{
+        width: 480px;
+        height: 100px;
+        margin: 200px auto;
+    }
+    .wrap{
+        display: flex;
+        margin-top:20px;
+        height:100%;
+        border-radius: 10px;
+        overflow: hidden;
+        box-shadow: 0 0 4px black;
+    }
+    .wrap button{
+        width: 150px;
+        height: 100%;
+        font-size: 40px;
+        color: gray;
+        cursor: pointer;
+        border: none;
+        outline: none;
+    }
+    .wrap span{
+        height: 100%;
+        font-size: 40px;
+        flex: 1;
+        text-align: center;
+        line-height: 100px;
+    }
+    </style>
+</head>
+<body>
+<div id = "counter">
+    <div class="wrap">
+    <button @click="sub">-</button>
+        <span>{{num}}</span>
+        <button @click="add">+</button>
+    </div>
+</div>
+<script src = "http://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script>
+    let counter = new Vue({
+        el: '#counter',
+        data: {num: '1'},
+        methods: {
+            add: function () {
+                if (this.num < 10) {
+                    this.num++;
+                } else {
+                    alert('超过最大值啦！')
+                }
+            },
+            sub: function () {
+                if (this.num >0) {
+                    this.num--;
+                } else {
+                    alert('不能再小了！')
+                }
+            }
+        }
+    })
+</script>
+</body>
+</html>
